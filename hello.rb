@@ -36,15 +36,7 @@ get '/add' do
   return "added it #{item.inspect}"
 end
 
-get '/start' do
-  options = get_connection
-  conn= Mongo::Connection.new(options['server'], options['port'], options) 
-  db = conn.db(options['database'])
-  item = db['counters'].insert({'name' => 'test', 'value' => 1})
-  return "added it #{item.inspect}"
-end
-
-get '/list' do
+get '/show' do
   options = get_connection
   conn= Mongo::Connection.new(options['server'], options['port'], options) 
   db = conn.db(options['database'])
